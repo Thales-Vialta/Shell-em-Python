@@ -47,7 +47,7 @@ while True:
                 print("Uso incorreto de !n")
                 continue
         elif entrada.startswith("cd"): 
-            partes = entrada.split()
+            partes = entrada.split(maxsplit=1)
             if len(partes) == 1:  
                 new_dir = os.path.expanduser("~")
             else: 
@@ -59,7 +59,7 @@ while True:
             hist.append(entrada)
             continue
         else: 
-            subprocess.run(shlex.split(entrada))
+            subprocess.run(entrada, shell=True)
             hist.append(entrada)
     except KeyboardInterrupt: 
         print("Programa encerrado...")
