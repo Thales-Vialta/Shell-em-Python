@@ -1,4 +1,4 @@
-import subprocess, os, shlex
+import subprocess, os
 
 hist = []
 
@@ -40,7 +40,7 @@ while True:
                     continue
                 entrada = hist[n]          
                 print("Executando: " + entrada)
-                subprocess.run(shlex.split(entrada))
+                subprocess.run(entrada, shell = True)
                 hist.append(entrada)
                 continue
             except ValueError: 
