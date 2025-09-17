@@ -5,7 +5,7 @@ hist = []
 def executar_comando(cmd):
     """Executa comando externo e adiciona ao histórico"""
     try:
-        subprocess.run(shlex.split(cmd))
+        subprocess.runsplit(cmd, shell = True)
         hist.append(cmd)
     except FileNotFoundError:
         print("Comando não encontrado:", cmd)
